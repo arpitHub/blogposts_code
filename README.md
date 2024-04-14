@@ -1,2 +1,1 @@
-# blogposts_code
-Repository for codes for blog post on my website iarpit.com
+Repository for codes for blog posts on my website https://www.iarpit.com
