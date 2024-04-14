@@ -1,0 +1,33 @@
+# Python virtual environment
+venv/
+env/
+.venv/
+*.venv/
+*.env/
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.iml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary/Backup files
+*~
+*.bak
+*.swp
+*.tmp
+
+# Logs and build artifacts
+*.log
+*.out
+*.pyc
+*.pyo
+__pycache__/
+
+# Configuration files
+config.ini
+.env
+*.config

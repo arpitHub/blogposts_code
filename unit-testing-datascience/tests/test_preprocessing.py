@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from ..src.preprocessing import load_iris_dataset, preprocess_data
+from src.preprocessing import load_iris_dataset, preprocess_data
 
 data_dir = Path(__file__).parent.parent / 'data'  # Navigate up to the project root
 iris_path = data_dir / 'iris.csv'
@@ -22,7 +22,7 @@ def test_missing_values():
 
 def test_no_duplicates():
     df = load_iris_dataset(iris_path)
-    assert df.duplicated().any(), "Dataset contains duplicate records"
+    assert not df.duplicated().any(), "Dataset contains duplicate records"
 
 
 def test_column_datatypes():
