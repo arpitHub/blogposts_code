@@ -17,7 +17,7 @@ function fileToBase64(file) {
     reader.onload = () => {
       const result = reader.result;
       const base64 = result.split(',')[1];
-      resolve({ base64, mediaType: file.type });
+      resolve(base64);
     };
     reader.onerror = reject;
     reader.readAsDataURL(file);
@@ -80,65 +80,57 @@ export default function App() {
       return;
     }
 
-    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-    if (!apiKey) {
-      setError('Missing API key. Set VITE_ANTHROPIC_API_KEY in your .env file.');
-      return;
-    }
+    const baseUrl = (
+      import.meta.env.VITE_OLLAMA_URL || 'http://localhost:11434'
+    ).replace(/\/$/, '');
+    const model = import.meta.env.VITE_OLLAMA_MODEL || 'gemma3:4b';
 
     setLoading(true);
 
     try {
-      const userContent = [];
+      const userMessage = {
+        role: 'user',
+        content: description.trim()
+          ? description.trim()
+          : 'Please identify the creature in this image.',
+      };
       if (imageFile) {
-        const { base64, mediaType } = await fileToBase64(imageFile);
-        userContent.push({
-          type: 'image',
-          source: {
-            type: 'base64',
-            media_type: mediaType,
-            data: base64,
-          },
-        });
+        const base64 = await fileToBase64(imageFile);
+        userMessage.images = [base64];
       }
-      const textPart = description.trim()
-        ? description.trim()
-        : 'Please identify the creature in this image.';
-      userContent.push({ type: 'text', text: textPart });
 
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch(`${baseUrl}/api/chat`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: [{ role: 'user', content: userContent }],
+          model,
+          stream: false,
+          format: 'json',
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            userMessage,
+          ],
+          options: { num_predict: 1000 },
         }),
       });
 
       if (!response.ok) {
         const errText = await response.text();
-        throw new Error(`API error (${response.status}): ${errText}`);
+        throw new Error(`Ollama error (${response.status}): ${errText}`);
       }
 
       const data = await response.json();
-      const textBlock = data.content?.find((b) => b.type === 'text');
-      if (!textBlock?.text) {
+      const text = data.message?.content;
+      if (!text) {
         throw new Error('No text response from the model.');
       }
 
-      const parsed = extractJson(textBlock.text);
+      const parsed = extractJson(text);
       setResult(parsed);
     } catch (err) {
       console.error(err);
       setError(
-        "Something went wrong while identifying the creature. Please check your connection or API key and try again."
+        "Something went wrong while identifying the creature. Make sure Ollama is running locally and the model is installed, then try again."
       );
     } finally {
       setLoading(false);
