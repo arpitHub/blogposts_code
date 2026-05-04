@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+storage/photos/cases/*
+storage/photos/sightings/*
+!storage/photos/cases/.gitkeep
+!storage/photos/sightings/.gitkeep
+.pytest_cache/
