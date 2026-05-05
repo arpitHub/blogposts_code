@@ -2,9 +2,11 @@
 admin, and matching wiring follow in steps 4-7."""
 import logging
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import APIRouter, Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 
@@ -80,3 +82,10 @@ def login(req: LoginRequest, db: Session = Depends(get_db)):
 
 app.include_router(auth_router)
 app.include_router(public.router)
+
+
+# Serve uploaded case + sighting photos. Photos are stored under
+# PHOTO_STORAGE_PATH and exposed at /storage/<relative_path>.
+_photo_root = Path(settings.PHOTO_STORAGE_PATH)
+_photo_root.mkdir(parents=True, exist_ok=True)
+app.mount("/storage", StaticFiles(directory=str(_photo_root)), name="storage")
