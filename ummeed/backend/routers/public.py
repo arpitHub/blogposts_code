@@ -11,6 +11,7 @@ from typing import Optional
 
 from fastapi import (
     APIRouter,
+    BackgroundTasks,
     Depends,
     File,
     Form,
@@ -26,6 +27,7 @@ from auth import SCOPE_SIGHTING, create_token, get_otp_session_phone
 from config import settings
 from database import get_db
 from models import Case, CaseStatus, Gender, SightingReport, SightingStatus
+from services.matching_service import run_match_for_sighting
 from services.otp_service import (
     generate_otp,
     send_otp_sms,
@@ -294,6 +296,7 @@ class SightingResponse(BaseModel):
 
 @router.post("/sightings", response_model=SightingResponse, status_code=201)
 async def submit_sighting(
+    background_tasks: BackgroundTasks,
     sighting_location: str = Form(..., min_length=1),
     sighting_datetime: datetime = Form(...),
     photo: UploadFile = File(...),
@@ -327,8 +330,7 @@ async def submit_sighting(
     db.commit()
     db.refresh(sighting)
 
-    # TODO step 5: queue DeepFace background match for this sighting.
-    # background_tasks.add_task(run_match_for_sighting, sighting.id)
+    background_tasks.add_task(run_match_for_sighting, sighting.id)
 
     return SightingResponse(
         id=sighting.id,
