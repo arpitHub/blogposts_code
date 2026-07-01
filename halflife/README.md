@@ -1,32 +1,53 @@
-# React + TypeScript + Vite
+# HalfLife
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An interactive, single-page explainer of **radiometric dating and the discovery
+of deep time** — how we came to know the Earth is 4.55 billion years old by
+counting atoms.
 
-Currently, two official plugins are available:
+Every section has a persistent **"Explain Like I'm…" depth toggle** (Beginner /
+Technical). Both modes share the same visuals; only the accompanying text,
+labels, and equations change.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## The seven concepts
 
-## React Compiler
+1. **Radioactive decay, animated** — a jar of ~200 atoms flips parent→daughter
+   at a rate set by a half-life slider, with a live parent-fraction decay curve
+   and the analytic `N(t) = N₀e^(−λt)` overlay in Technical mode.
+2. **The discovery story** — a scrubbable 1896–1956 timeline (Becquerel → the
+   Curies → Rutherford → Patterson), each stop with a small animated
+   recreation of the key observation.
+3. **Isotopes & decay chains** — the U-238, U-235 and Th-232 chains play out as
+   a relay of ~11–14 isotopes, each node holding the atom for its (log-mapped)
+   half-life, from microseconds to billions of years.
+4. **Different clocks for different timescales** — three jars (Carbon-14,
+   Potassium-Argon, Uranium-Lead) on a shared logarithmic time slider, showing
+   why the clock you pick depends on what you're dating.
+5. **How Patterson dated the Earth** — the Pb–Pb meteorite isochron rebuilt as a
+   physical simulation: points grow out of primordial lead onto one line whose
+   slope reads 4.55 Gyr. Drag a point to see open-system scatter break the fit.
+6. **Helioseismology cross-check** — the Sun's acoustic oscillations as an
+   independent clock landing on ~4.6 Gyr; two unrelated methods agree.
+7. **Deep time, on one scale** — every marker anchored by a named dating method,
+   with a linear/log axis toggle in Technical mode.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The **jar-of-particles + decay-curve** visual language from Section 1 is reused
+in Sections 3 and 4 so the mental model compounds. Color is consistent
+throughout: **amber/gold = ancient / parent isotope**, **cool blue = recent /
+daughter isotope**. Chart series colors are validated colorblind-safe against
+the near-black surface.
 
-## Expanding the Oxlint configuration
+## Stack
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+React 18 · Vite · TypeScript · Tailwind CSS v4 · Framer Motion · Recharts.
+Everything runs client-side with real published half-lives, isochron data, and
+ages; the particle simulations are pedagogical (a few hundred atoms, seeded and
+deterministic, not 10²³).
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Develop
+
+```bash
+npm install
+npm run dev      # start the dev server
+npm run build    # type-check + production build to dist/
+npm run preview  # serve the production build
 ```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
