@@ -5,6 +5,12 @@ import { DepthToggle } from './components/DepthToggle'
 import { SectionNav } from './components/SectionNav'
 import { IntroSection } from './sections/IntroSection'
 import { DecaySection } from './sections/DecaySection'
+import { DiscoverySection } from './sections/DiscoverySection'
+import { ChainsSection } from './sections/ChainsSection'
+import { ClocksSection } from './sections/ClocksSection'
+import { IsochronSection } from './sections/IsochronSection'
+import { HelioSection } from './sections/HelioSection'
+import { DeepTimeSection } from './sections/DeepTimeSection'
 
 export default function App() {
   const [depth, setDepth] = useState<Depth>('beginner')
@@ -36,6 +42,12 @@ export default function App() {
       <main ref={scrollRef} className="snap-main">
         <IntroSection />
         <DecaySection />
+        <DiscoverySection />
+        <ChainsSection />
+        <ClocksSection />
+        <IsochronSection />
+        <HelioSection />
+        <DeepTimeSection />
         <footer className="border-t border-line px-6 py-10 text-center text-xs leading-relaxed text-ink-3">
           Built as an interactive explainer. Half-lives, isochron data and ages
           are real published values; the particle simulations are pedagogical
