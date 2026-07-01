@@ -8,6 +8,8 @@ import Embeddings from './sections/Embeddings'
 import Attention from './sections/Attention'
 import TransformerStack from './sections/TransformerStack'
 import Generation from './sections/Generation'
+import Rag from './sections/Rag'
+import Agents from './sections/Agents'
 
 const SECTIONS: SectionMeta[] = [
   { id: 'intro', label: 'Intro' },
@@ -16,6 +18,8 @@ const SECTIONS: SectionMeta[] = [
   { id: 'attention', label: 'Attention' },
   { id: 'stack', label: 'Transformer' },
   { id: 'generation', label: 'Generation' },
+  { id: 'rag', label: 'RAG' },
+  { id: 'agents', label: 'Agents' },
 ]
 
 export default function App() {
@@ -51,6 +55,8 @@ export default function App() {
         <Attention />
         <TransformerStack />
         <Generation />
+        <Rag />
+        <Agents />
         <footer className="snap-start px-4 py-10 text-center text-xs text-ink-3">
           Built as an interactive explainer · all data is precomputed or mocked — no model calls, no
           backend.

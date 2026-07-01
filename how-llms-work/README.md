@@ -24,6 +24,12 @@ is no backend and no model call.
 5. **Generation** — a live probability bar chart over candidate next tokens
    with a temperature slider; roll the weighted die to sample and extend the
    prompt.
+6. **RAG** — a query embeds into a mock vector store, retrieves the nearest
+   chunks, and assembles them into the prompt; technical mode adds a
+   vector-vs-hybrid (+BM25) toggle and a cross-encoder re-ranking step.
+7. **Agents** — step a query through the plan → tool → observe → decide loop
+   with three mocked tool calls; technical mode shows the accumulating
+   ReAct-style thought/action/observation trace.
 
 ## Stack
 

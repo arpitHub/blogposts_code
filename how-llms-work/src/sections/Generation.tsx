@@ -165,8 +165,8 @@ export default function Generation() {
 
       <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-relaxed text-ink-3">
         <Depth
-          b="That's the whole loop: chop into tokens, place them on the map of meaning, let every word look around, refine it layer by layer, guess the next token — then repeat with one more token. Everything an LLM writes comes from this loop running very, very fast."
-          t="tokenize → embed → N × (attention + FFN) → logits → sample → append → repeat. Autoregressive decoding, one token per forward pass (modulo KV-caching and speculative tricks)."
+          b="That's the core loop: chop into tokens, place them on the map of meaning, let every word look around, refine it layer by layer, guess the next token — then repeat with one more token. Next: two upgrades that wrap this loop — letting the model look things up, and letting it act."
+          t="tokenize → embed → N × (attention + FFN) → logits → sample → append → repeat. Autoregressive decoding, one token per forward pass (modulo KV-caching and speculative tricks). The next two sections wrap this loop: retrieval and tool use."
         />
       </p>
     </Section>
