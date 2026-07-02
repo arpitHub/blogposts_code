@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page: #0d0d0d;
+  --color-surface: #1a1a19;
+  --color-surface-2: #232322;
+  --color-ink: #ffffff;
+  --color-ink-2: #c3c2b7;
+  --color-ink-3: #898781;
+  --color-grid: #2c2c2a;
+  --color-axis: #383835;
+  --color-hairline: rgba(255, 255, 255, 0.1);
+  --color-tok-blue: #3987e5;
+  --color-tok-aqua: #199e70;
+  --color-tok-yellow: #c98500;
+  --color-tok-violet: #9085e9;
+  --color-tok-red: #e66767;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(57, 135, 229, 0.4);
+}
+
+/* Custom scrollbar for the snap container */
+.snap-container {
+  scrollbar-width: thin;
+  scrollbar-color: #383835 transparent;
+}
+
+input[type="range"] {
+  accent-color: var(--color-tok-blue);
+}
