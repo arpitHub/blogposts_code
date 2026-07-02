@@ -42,3 +42,20 @@ npm install
 npm run dev     # dev server
 npm run build   # type-check + production build
 ```
+
+## Deploy to Vercel
+
+The app is fully static — no environment variables, no backend. Because this
+repository contains multiple projects, the one required setting when importing
+it on [vercel.com/new](https://vercel.com/new) is:
+
+- **Root Directory**: `how-llms-work`
+
+Everything else auto-detects from `vercel.json` / the Vite preset
+(build `npm run build`, output `dist`). Alternatively, deploy without the
+GitHub integration using the CLI:
+
+```sh
+cd how-llms-work
+npx vercel --prod
+```

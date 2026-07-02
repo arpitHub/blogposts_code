@@ -1,20 +1,21 @@
-import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
-import {
-  Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis,
-} from 'recharts'
+import { lazy, Suspense, useMemo, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Section from '../components/Section'
-import { Depth, useDepth } from '../context/DepthContext'
+import { Depth } from '../context/DepthContext'
 import { applyTemperature, candidatesFor, sample } from '../lib/generation'
-import { FOCUS, INK } from '../lib/palette'
 
-const HIGHLIGHT = '#cde2fb' // lightest step of the same blue ramp — sampled bar
+// Recharts is by far the heaviest dependency and only this chart uses it, so
+// it ships as its own chunk and loads when the section renders.
+const ProbabilityChart = lazy(() => import('../components/ProbabilityChart'))
 
 export default function Generation() {
-  const { depth } = useDepth()
   const [prompt, setPrompt] = useState('The cat sat on the')
   const [temperature, setTemperature] = useState(0.8)
   const [sampled, setSampled] = useState<string | null>(null)
+
+  // Don't fetch the recharts chunk until the reader is close to this section.
+  const chartRef = useRef<HTMLDivElement>(null)
+  const chartNear = useInView(chartRef, { once: true, margin: '600px' })
 
   const dist = useMemo(
     () => applyTemperature(candidatesFor(prompt), temperature),
@@ -97,49 +98,20 @@ export default function Generation() {
           </span>
         </div>
 
-        <div className="mt-6 h-72 w-full" aria-label="Probability of each candidate next token">
-          <ResponsiveContainer>
-            <BarChart data={data} margin={{ top: 24, right: 8, left: 0, bottom: 0 }}>
-              <CartesianGrid vertical={false} stroke={INK.grid} />
-              <XAxis
-                dataKey="token"
-                tickLine={false}
-                axisLine={{ stroke: INK.axis }}
-                tick={{ fill: INK.secondary, fontSize: 12, fontFamily: 'ui-monospace, monospace' }}
-                interval={0}
-              />
-              <YAxis
-                tickLine={false}
-                axisLine={false}
-                tick={{ fill: INK.muted, fontSize: 11 }}
-                tickFormatter={(v: number) => `${v.toFixed(0)}%`}
-                width={40}
-              />
-              <Tooltip
-                cursor={{ fill: 'rgba(255,255,255,0.04)' }}
-                content={({ active, payload }) => {
-                  if (!active || !payload?.length) return null
-                  const d = payload[0].payload as (typeof data)[number]
-                  return (
-                    <div className="rounded-md border border-hairline bg-page px-3 py-2 font-mono text-xs text-ink shadow-lg">
-                      <p className="font-semibold">“{d.token}”</p>
-                      <p className="text-ink-2">p = {(d.p * 100).toFixed(1)}%</p>
-                      {depth === 'technical' && <p className="text-ink-3">logit = {d.logit.toFixed(1)}</p>}
-                    </div>
-                  )
-                }}
-              />
-              <Bar dataKey="pct" radius={[4, 4, 0, 0]} isAnimationActive animationDuration={350}>
-                {data.map((d) => (
-                  <Cell
-                    key={d.token}
-                    fill={d.token === sampled ? HIGHLIGHT : FOCUS}
-                    stroke={d.token === sampled ? '#fff' : 'none'}
-                  />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+        <div ref={chartRef} className="mt-6 h-72 w-full" aria-label="Probability of each candidate next token">
+          {chartNear ? (
+            <Suspense
+              fallback={
+                <div className="flex h-full items-center justify-center rounded-lg border border-hairline text-sm text-ink-3">
+                  loading chart…
+                </div>
+              }
+            >
+              <ProbabilityChart data={data} sampled={sampled} />
+            </Suspense>
+          ) : (
+            <div className="h-full rounded-lg border border-hairline" aria-hidden="true" />
+          )}
         </div>
 
         <div className="mt-2 flex items-center justify-between gap-4">
