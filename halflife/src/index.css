@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  /* deep space / deep time surfaces */
+  --color-void: #07070b; /* page plane */
+  --color-surface: #0a0a0f; /* chart/section surface */
+  --color-panel: #12121a; /* raised cards */
+  --color-panel-2: #191925; /* hover / inset */
+  --color-line: #232330; /* hairline borders & gridlines */
+  --color-axis: #34343f;
+
+  /* ink */
+  --color-ink: #f4f2ec;
+  --color-ink-2: #b9b7c0;
+  --color-ink-3: #8a8894;
+
+  /* ancient / parent isotope — amber. series = chart-safe, glow = decorative */
+  --color-amber-series: #c98500;
+  --color-amber-glow: #f5b846;
+  /* recent / daughter isotope — blue */
+  --color-blue-series: #3987e5;
+  --color-blue-glow: #7db5f0;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  background: var(--color-void);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-void);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* scroll-snap container lives on <main> */
+.snap-main {
+  height: 100svh;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.5rem;
+}
+
+/* recessive scrollbar */
+.snap-main::-webkit-scrollbar {
+  width: 10px;
+}
+.snap-main::-webkit-scrollbar-thumb {
+  background: #232330;
+  border-radius: 5px;
+  border: 2px solid #07070b;
+}
+.snap-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* range inputs — shared control styling */
+input[type="range"].hl-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-line);
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"].hl-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-amber-glow);
+  border: 3px solid var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-amber-series);
+  transition: transform 120ms ease;
+}
+input[type="range"].hl-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"].hl-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-amber-glow);
+  border: 3px solid var(--color-surface);
+  box-shadow: 0 0 0 1px var(--color-amber-series);
+}
+input[type="range"].hl-range.hl-range-blue::-webkit-slider-thumb {
+  background: var(--color-blue-glow);
+  box-shadow: 0 0 0 1px var(--color-blue-series);
+}
+input[type="range"].hl-range.hl-range-blue::-moz-range-thumb {
+  background: var(--color-blue-glow);
+  box-shadow: 0 0 0 1px var(--color-blue-series);
+}
+
+/* particle state transitions (SVG circles) */
+.hl-particle {
+  transition:
+    fill 500ms ease,
+    opacity 500ms ease;
+}
+
+@keyframes hl-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* focus rings */
+button:focus-visible,
+input:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 2px solid var(--color-blue-series);
+  outline-offset: 2px;
+}
