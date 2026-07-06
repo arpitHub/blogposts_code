@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply font-body text-offwhite;
+    background: linear-gradient(to bottom, #14172e, #1b1f3b, #23294e);
+    min-height: 100vh;
+  }
+}
+
+@keyframes swoopIn {
+  from {
+    transform: translateY(-40px) rotate(-3deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(6deg);
+  }
+}
+
+@keyframes shakeOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+}
+
+@keyframes progressShrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.swoop-in {
+  animation: swoopIn 380ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.shake-out {
+  animation: shakeOut 420ms ease both;
+}
+.progress-fill {
+  animation-name: progressShrink;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swoop-in,
+  .float-slow,
+  .shake-out {
+    animation: none !important;
+  }
+}
