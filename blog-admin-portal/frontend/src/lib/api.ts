@@ -17,7 +17,10 @@ export interface PostInput {
   status: PostStatus;
 }
 
-const BASE = "/api";
+// In dev, Vite proxies /api/* to localhost:8000 (see vite.config.ts).
+// In prod (e.g. on Vercel), set VITE_API_BASE_URL to your backend origin,
+// e.g. https://blog-admin-portal-api.fly.dev
+const BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "/api";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${BASE}${path}`, {

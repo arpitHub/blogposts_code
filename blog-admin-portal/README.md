@@ -10,7 +10,8 @@ model (`qwen3:8b` by default).
 - **Frontend** — React 18, TypeScript, Vite, Tailwind CSS, shadcn-style UI
   primitives, TanStack Query v5, React Router v6, TipTap.
 - **Backend** — FastAPI, SQLAlchemy, SQLite, httpx.
-- **AI** — Ollama, streaming `qwen3:8b` over HTTP.
+- **AI** — Ollama (`qwen3:8b`) for local dev, or Anthropic Claude for
+  hosted deployments. Both stream responses.
 
 ## Project layout
 
@@ -61,10 +62,16 @@ The first run creates `blog.db` in the backend directory. Visit
 
 ### Environment variables
 
-| Variable       | Default                  | Description                   |
-| -------------- | ------------------------ | ----------------------------- |
-| `OLLAMA_URL`   | `http://localhost:11434` | Base URL for the Ollama API   |
-| `OLLAMA_MODEL` | `qwen3:8b`               | Model used for suggestions    |
+| Variable              | Default                       | Description                                                                     |
+| --------------------- | ----------------------------- | ------------------------------------------------------------------------------- |
+| `LLM_PROVIDER`        | `ollama`                      | `ollama` (local) or `anthropic` (hosted)                                        |
+| `OLLAMA_URL`          | `http://localhost:11434`      | Base URL for the Ollama API                                                     |
+| `OLLAMA_MODEL`        | `qwen3:8b`                    | Model used for suggestions                                                      |
+| `ANTHROPIC_API_KEY`   | —                             | Required when `LLM_PROVIDER=anthropic`                                          |
+| `ANTHROPIC_MODEL`     | `claude-haiku-4-5-20251001`   | Anthropic model id                                                              |
+| `ANTHROPIC_MAX_TOKENS`| `1024`                        | Max tokens per suggestion                                                       |
+| `DATABASE_URL`        | `sqlite:///./blog.db`         | SQLAlchemy URL (any SQLAlchemy-supported DB)                                    |
+| `CORS_ORIGINS`        | `http://localhost:5173`       | Comma-separated list of allowed origins                                         |
 
 ## Frontend setup
 
@@ -104,9 +111,63 @@ arrives.
   toggle, and a "✨ Suggest continuation" button that streams text from
   the local Ollama model into the editor in real time.
 
+## Deployment
+
+The app is split cleanly so the frontend can go on Vercel and the backend
+somewhere with a persistent disk. A `vercel.json` (frontend) and
+`Dockerfile` + `fly.toml` (backend) are included.
+
+### Frontend on Vercel
+
+1. In Vercel, import the repo and set the **root directory** to
+   `blog-admin-portal/frontend`. The framework auto-detects as Vite.
+2. Set one environment variable:
+   - `VITE_API_BASE_URL` = `https://<your-backend-host>` (e.g. your Fly
+     app URL). No trailing slash.
+3. Deploy. The included `vercel.json` handles SPA routing.
+
+Locally, leave `VITE_API_BASE_URL` unset — Vite proxies `/api/*` to
+`localhost:8000`.
+
+### Backend on Fly.io
+
+Ollama on `localhost` is fine for development, but a hosted backend
+can't reach it. Set `LLM_PROVIDER=anthropic` so `/ai/suggest` streams
+from Claude instead. Streaming behaviour and the API contract stay
+identical.
+
+```sh
+cd backend
+fly launch --copy-config --no-deploy      # edit generated app name if prompted
+fly volumes create blog_data --size 1
+fly secrets set \
+  ANTHROPIC_API_KEY=sk-ant-... \
+  CORS_ORIGINS=https://<your-frontend>.vercel.app
+fly deploy
+```
+
+The Dockerfile writes `blog.db` under `/data`, which the `[[mounts]]`
+block in `fly.toml` binds to the `blog_data` volume — so SQLite data
+survives redeploys.
+
+### Other hosts
+
+Any platform that runs a container works: Render, Railway, DigitalOcean
+App Platform, a plain VPS with Docker. The two moving parts are the
+persistent volume for SQLite and the env vars listed above. On any host
+that can reach a self-hosted Ollama (e.g. a Tailscale tunnel), leave
+`LLM_PROVIDER=ollama` and set `OLLAMA_URL` to the reachable address.
+
+### Why not Vercel for the backend?
+
+Vercel's Python functions have a per-invocation timeout (10s Hobby, 60s
+Pro) and an ephemeral filesystem — neither plays well with SQLite writes
+or long LLM streams. Deploying the backend as a container avoids both.
+
 ## Notes
 
-- CORS is restricted to `http://localhost:5173`.
-- If Ollama is unreachable, the streamed response contains a single
-  `[Failed to reach Ollama at …]` chunk that is appended to the editor —
-  easy to spot, easy to delete.
+- CORS defaults to `http://localhost:5173`. In production set
+  `CORS_ORIGINS` to your Vercel URL (comma-separated for multiple).
+- If Ollama is unreachable (local dev), the streamed response contains a
+  single `[Failed to reach Ollama at …]` chunk that is appended to the
+  editor — easy to spot, easy to delete.

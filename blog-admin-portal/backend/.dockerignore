@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+.venv
+venv
+.env
+blog.db
+*.sqlite3
+.git
+.gitignore
+Dockerfile
+.dockerignore
+fly.toml
