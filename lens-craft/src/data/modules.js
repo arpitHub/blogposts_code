@@ -24,7 +24,7 @@ export const MODULES = [
     title: 'Aperture & Depth of Field',
     tagline: 'Why f/1.4 melts the background and f/16 keeps it all sharp.',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'shutter-speed-motion',
@@ -32,7 +32,7 @@ export const MODULES = [
     title: 'Shutter Speed & Motion',
     tagline: 'Freeze a splash or silk-smooth a waterfall — same water, different time.',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'iso-noise',
@@ -40,7 +40,7 @@ export const MODULES = [
     title: 'ISO & Noise',
     tagline: 'How much grain are you willing to trade for a usable shutter speed?',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'histogram-reading',
@@ -48,7 +48,7 @@ export const MODULES = [
     title: 'Reading the Histogram',
     tagline: "Your eyes lie in bright sunlight. The histogram doesn't.",
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'composition',
@@ -56,7 +56,7 @@ export const MODULES = [
     title: 'Composition',
     tagline: 'Rule of thirds, leading lines, and symmetry — drag the grid, feel the difference.',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'light-and-direction',
@@ -64,7 +64,7 @@ export const MODULES = [
     title: 'Light & Direction',
     tagline: 'Move the light around a face and watch mood appear out of nowhere.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'white-balance',
@@ -72,7 +72,7 @@ export const MODULES = [
     title: 'White Balance & Color Temperature',
     tagline: 'Kelvin is just a dial between candlelight-orange and overcast-blue.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'focal-length',
@@ -80,7 +80,7 @@ export const MODULES = [
     title: 'Focal Length & Lens Choice',
     tagline: '16mm to 400mm: field of view, compression, and why backgrounds "come closer."',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'focusing-modes',
@@ -88,7 +88,7 @@ export const MODULES = [
     title: 'Focusing Modes & AF Points',
     tagline: 'Single-shot vs. continuous, and why the AF point you pick matters.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'raw-vs-jpeg',
@@ -96,7 +96,7 @@ export const MODULES = [
     title: 'RAW vs. JPEG',
     tagline: 'Same sensor data, wildly different room to fix your mistakes later.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'post-processing-basics',
@@ -104,15 +104,15 @@ export const MODULES = [
     title: 'Post-Processing Basics',
     tagline: 'Exposure, contrast, and curves — the three edits that do 80% of the work.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'genre-guides',
     order: 13,
     title: 'Genre Guides',
-    tagline: 'Portrait, landscape, street, macro, astro, sports — starting settings for each.',
+    tagline: 'Portrait, landscape, astro — starting settings and the reasoning behind them.',
     level: 'advanced',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'gear-explainer',
@@ -120,7 +120,7 @@ export const MODULES = [
     title: 'Gear: Sensor Size & Crop Factor',
     tagline: 'Full-frame, APS-C, Micro Four Thirds — what actually changes, visually.',
     level: 'advanced',
-    ready: false,
+    ready: true,
   },
 ];
 
