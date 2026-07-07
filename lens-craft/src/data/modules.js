@@ -96,7 +96,7 @@ export const MODULES = [
     title: 'RAW vs. JPEG',
     tagline: 'Same sensor data, wildly different room to fix your mistakes later.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'post-processing-basics',
@@ -104,15 +104,15 @@ export const MODULES = [
     title: 'Post-Processing Basics',
     tagline: 'Exposure, contrast, and curves — the three edits that do 80% of the work.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'genre-guides',
     order: 13,
     title: 'Genre Guides',
-    tagline: 'Portrait, landscape, street, macro, astro, sports — starting settings for each.',
+    tagline: 'Portrait, landscape, astro — starting settings and the reasoning behind them.',
     level: 'advanced',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'gear-explainer',
@@ -120,7 +120,7 @@ export const MODULES = [
     title: 'Gear: Sensor Size & Crop Factor',
     tagline: 'Full-frame, APS-C, Micro Four Thirds — what actually changes, visually.',
     level: 'advanced',
-    ready: false,
+    ready: true,
   },
 ];
 
