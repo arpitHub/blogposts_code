@@ -48,7 +48,7 @@ export const MODULES = [
     title: 'Reading the Histogram',
     tagline: "Your eyes lie in bright sunlight. The histogram doesn't.",
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'composition',
@@ -80,7 +80,7 @@ export const MODULES = [
     title: 'Focal Length & Lens Choice',
     tagline: '16mm to 400mm: field of view, compression, and why backgrounds "come closer."',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'focusing-modes',
@@ -88,7 +88,7 @@ export const MODULES = [
     title: 'Focusing Modes & AF Points',
     tagline: 'Single-shot vs. continuous, and why the AF point you pick matters.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'raw-vs-jpeg',

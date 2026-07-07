@@ -9,6 +9,9 @@ import IsoNoiseModule from '../widgets/iso-noise/IsoNoiseModule.jsx';
 import CompositionModule from '../widgets/composition/CompositionModule.jsx';
 import LightDirectionModule from '../widgets/light-direction/LightDirectionModule.jsx';
 import WhiteBalanceModule from '../widgets/white-balance/WhiteBalanceModule.jsx';
+import FocalLengthModule from '../widgets/focal-length/FocalLengthModule.jsx';
+import HistogramModule from '../widgets/histogram/HistogramModule.jsx';
+import FocusingModule from '../widgets/focusing/FocusingModule.jsx';
 
 // Maps a module slug to its fully-built module page component.
 // Anything not in this registry falls back to the placeholder.
@@ -20,6 +23,9 @@ const BUILT_MODULES = {
   'composition': CompositionModule,
   'light-and-direction': LightDirectionModule,
   'white-balance': WhiteBalanceModule,
+  'focal-length': FocalLengthModule,
+  'histogram-reading': HistogramModule,
+  'focusing-modes': FocusingModule,
 };
 
 export default function ModuleRoute() {
