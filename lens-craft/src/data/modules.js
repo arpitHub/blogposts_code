@@ -24,7 +24,7 @@ export const MODULES = [
     title: 'Aperture & Depth of Field',
     tagline: 'Why f/1.4 melts the background and f/16 keeps it all sharp.',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'shutter-speed-motion',
@@ -32,7 +32,7 @@ export const MODULES = [
     title: 'Shutter Speed & Motion',
     tagline: 'Freeze a splash or silk-smooth a waterfall — same water, different time.',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'iso-noise',
@@ -40,7 +40,7 @@ export const MODULES = [
     title: 'ISO & Noise',
     tagline: 'How much grain are you willing to trade for a usable shutter speed?',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'histogram-reading',
