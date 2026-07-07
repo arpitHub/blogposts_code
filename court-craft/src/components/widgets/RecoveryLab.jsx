@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TopCourtSVG, PlayerDot, MID_X, NET_Y, BASE_TOP, BASE_BOT, IN_X0, IN_X1 } from './TopCourt'
+import { TopCourtSVG, PlayerDot, MID_X, BASE_TOP, BASE_BOT, IN_X0, IN_X1 } from './TopCourt'
 import { Segmented } from '../ui'
 
 // Where should you stand AFTER your shot? Not the center mark — the spot that

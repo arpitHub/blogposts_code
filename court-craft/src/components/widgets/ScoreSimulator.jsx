@@ -101,7 +101,7 @@ function pointNameRaw(p, who) {
   return POINT_NAMES[a] ?? '40'
 }
 
-function Row({ label, sets, games, points, tiebreak, serving }) {
+function Row({ label, sets, games, points, tiebreak }) {
   return (
     <div className="grid grid-cols-[1fr_repeat(3,52px)] items-center gap-1 sm:grid-cols-[1fr_repeat(3,64px)]">
       <div className="flex items-center gap-2 truncate px-2 font-semibold text-court-50">

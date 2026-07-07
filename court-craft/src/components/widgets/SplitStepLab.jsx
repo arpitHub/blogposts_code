@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { TopCourtSVG, PlayerDot, Ball, MID_X, NET_Y, BASE_TOP, BASE_BOT, IN_X0, IN_X1, SRV } from './TopCourt'
+import { TopCourtSVG, PlayerDot, Ball, MID_X, BASE_TOP, BASE_BOT, IN_X0, IN_X1 } from './TopCourt'
 
 // The split-step timing game: hit "Split!" just before the opponent strikes.
 // Timing feedback mirrors coaching reality: initiate the hop as the opponent

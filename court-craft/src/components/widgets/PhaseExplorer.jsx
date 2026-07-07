@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { StickFigure, FigureStage, evalPhases, racketTrail, trailPath, FIG_W } from './figures'
+import { StickFigure, FigureStage, evalPhases, racketTrail, trailPath } from './figures'
 import { Segmented } from '../ui'
 
 /**
@@ -7,7 +7,7 @@ import { Segmented } from '../ui'
  * `phases`: [{ name, note, pose }]
  * Optional `variants`: [{ id, label, phases }] renders a toggle (e.g. 1H/2H backhand).
  */
-export default function PhaseExplorer({ phases: basePhases, variants, height = 'md' }) {
+export default function PhaseExplorer({ phases: basePhases, variants }) {
   const [variantId, setVariantId] = useState(variants?.[0]?.id)
   const phases = variants ? variants.find((v) => v.id === variantId).phases : basePhases
 
