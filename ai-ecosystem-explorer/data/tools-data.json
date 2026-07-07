@@ -1,0 +1,160 @@
+{
+  "categories": [
+    {
+      "id": "llm",
+      "name": "LLM Providers",
+      "tools": [
+        { "id": "openai-gpt", "name": "OpenAI GPT", "description": "General-purpose frontier LLM family (GPT-4o, o-series) via API and ChatGPT.", "website": "https://openai.com" },
+        { "id": "anthropic-claude", "name": "Anthropic Claude", "description": "Frontier LLM family focused on safety, reasoning, and long-context tasks.", "website": "https://anthropic.com" },
+        { "id": "google-gemini", "name": "Google Gemini", "description": "Google's multimodal LLM family integrated with Vertex AI and Workspace.", "website": "https://gemini.google.com" },
+        { "id": "meta-llama", "name": "Meta Llama", "description": "Open-weight LLM family widely used for self-hosting and fine-tuning.", "website": "https://llama.meta.com" },
+        { "id": "mistral-ai", "name": "Mistral AI", "description": "European open-weight and commercial LLM provider, strong small-model lineup.", "website": "https://mistral.ai" },
+        { "id": "cohere", "name": "Cohere", "description": "Enterprise-focused LLM provider with strong retrieval and embedding models.", "website": "https://cohere.com" },
+        { "id": "hugging-face", "name": "Hugging Face", "description": "Hub and libraries for open-source models, datasets, and inference.", "website": "https://huggingface.co" },
+        { "id": "ollama", "name": "Ollama", "description": "Local runtime for running open-weight LLMs on your own machine.", "website": "https://ollama.com" },
+        { "id": "vllm", "name": "vLLM", "description": "High-throughput inference and serving engine for open-weight LLMs.", "website": "https://github.com/vllm-project/vllm" }
+      ]
+    },
+    {
+      "id": "agentic-ai",
+      "name": "Agentic AI",
+      "tools": [
+        { "id": "langgraph", "name": "LangGraph", "description": "Graph-based framework for building stateful, multi-step agent workflows.", "website": "https://langchain-ai.github.io/langgraph/" },
+        { "id": "crewai", "name": "CrewAI", "description": "Framework for orchestrating role-based multi-agent teams.", "website": "https://crewai.com" },
+        { "id": "microsoft-autogen", "name": "Microsoft AutoGen", "description": "Multi-agent conversation framework from Microsoft Research.", "website": "https://microsoft.github.io/autogen/" },
+        { "id": "ms-agent-framework", "name": "Microsoft Agent Framework", "description": "Microsoft's production agent-building framework.", "website": "https://learn.microsoft.com" },
+        { "id": "llamaindex-workflows", "name": "LlamaIndex Workflows", "description": "Event-driven workflow engine within LlamaIndex for agentic apps.", "website": "https://docs.llamaindex.ai" },
+        { "id": "aws-strands", "name": "AWS Strands Agents", "description": "AWS's SDK for building model-driven AI agents.", "website": "https://aws.amazon.com" },
+        { "id": "camel", "name": "CAMEL", "description": "Research framework for multi-agent role-playing and communication.", "website": "https://www.camel-ai.org" },
+        { "id": "agno-unverified", "name": "Agno (verify name)", "description": "Cut off in screenshot — likely Agno agent framework; confirm before use.", "website": "" }
+      ]
+    },
+    {
+      "id": "rag",
+      "name": "RAG",
+      "tools": [
+        { "id": "langchain", "name": "LangChain", "description": "General-purpose framework for building LLM apps, chains, and RAG pipelines.", "website": "https://langchain.com" },
+        { "id": "llamaindex", "name": "LlamaIndex", "description": "Data framework specialized for connecting LLMs to custom data via RAG.", "website": "https://llamaindex.ai" },
+        { "id": "haystack", "name": "Haystack", "description": "deepset's open-source framework for search and RAG pipelines.", "website": "https://haystack.deepset.ai" },
+        { "id": "dspy", "name": "DSPy", "description": "Framework for programming (not prompting) LLM pipelines declaratively.", "website": "https://dspy.ai" },
+        { "id": "ragflow", "name": "RAGFlow", "description": "Open-source RAG engine with deep document understanding.", "website": "https://ragflow.io" },
+        { "id": "graphrag", "name": "GraphRAG", "description": "Microsoft's approach to RAG using knowledge graphs for retrieval.", "website": "https://microsoft.github.io/graphrag/" },
+        { "id": "unstructured", "name": "Unstructured", "description": "Library/service for parsing and chunking unstructured documents for RAG.", "website": "https://unstructured.io" },
+        { "id": "embedchain-unverified", "name": "EmbedChain (verify name)", "description": "Cut off in screenshot — likely Embedchain; confirm before use.", "website": "" }
+      ]
+    },
+    {
+      "id": "embedding",
+      "name": "Embedding Models",
+      "tools": [
+        { "id": "openai-embeddings", "name": "OpenAI Embeddings", "description": "OpenAI's text embedding model family (e.g. text-embedding-3).", "website": "https://platform.openai.com" },
+        { "id": "cohere-embed", "name": "Cohere Embed", "description": "Cohere's multilingual embedding models for search and retrieval.", "website": "https://cohere.com/embed" },
+        { "id": "voyage-ai", "name": "Voyage AI", "description": "Embedding model provider specialized for retrieval accuracy.", "website": "https://voyageai.com" },
+        { "id": "sentence-transformers", "name": "Sentence Transformers", "description": "Open-source library for embedding models (SBERT and successors).", "website": "https://sbert.net" },
+        { "id": "bge", "name": "BGE", "description": "BAAI's open-source general embedding model family.", "website": "https://huggingface.co/BAAI" },
+        { "id": "vertex-embeddings", "name": "Google Vertex AI Embeddings", "description": "Google Cloud's managed text/multimodal embedding models.", "website": "https://cloud.google.com/vertex-ai" },
+        { "id": "azure-embeddings", "name": "Azure OpenAI Embeddings", "description": "OpenAI embedding models served via Azure OpenAI Service.", "website": "https://azure.microsoft.com" }
+      ]
+    },
+    {
+      "id": "mcp",
+      "name": "MCP (Model Context Protocol)",
+      "tools": [
+        { "id": "mcp-sdk", "name": "MCP SDK", "description": "Official SDK for building MCP clients and servers.", "website": "https://modelcontextprotocol.io" },
+        { "id": "fastmcp", "name": "FastMCP", "description": "Fast, Pythonic framework for building MCP servers quickly.", "website": "https://github.com/jlowin/fastmcp" },
+        { "id": "mcp-registry", "name": "MCP Registry", "description": "Directory/registry for discovering available MCP servers.", "website": "https://modelcontextprotocol.io" },
+        { "id": "github-mcp", "name": "GitHub MCP Server", "description": "MCP server exposing GitHub repos, issues, and PRs as tools.", "website": "https://github.com" },
+        { "id": "slack-mcp", "name": "Slack MCP Server", "description": "MCP server for reading/writing Slack messages and channels.", "website": "https://slack.com" },
+        { "id": "postgres-mcp", "name": "PostgreSQL MCP Server", "description": "MCP server exposing Postgres databases as queryable tools.", "website": "" },
+        { "id": "gdrive-mcp", "name": "Google Drive MCP Server", "description": "MCP server for accessing and searching Google Drive files.", "website": "" },
+        { "id": "filesystem-mcp", "name": "Filesystem MCP Server", "description": "MCP server exposing local filesystem read/write as tools.", "website": "" }
+      ]
+    },
+    {
+      "id": "ai-security",
+      "name": "AI Security",
+      "tools": [
+        { "id": "nemo-guardrails", "name": "NVIDIA NeMo Guardrails", "description": "Toolkit for adding programmable guardrails to LLM apps.", "website": "https://github.com/NVIDIA/NeMo-Guardrails" },
+        { "id": "guardrails-ai", "name": "Guardrails AI", "description": "Framework for validating and correcting LLM inputs/outputs.", "website": "https://guardrailsai.com" },
+        { "id": "ms-presidio", "name": "Microsoft Presidio", "description": "Open-source PII detection and anonymization SDK.", "website": "https://microsoft.github.io/presidio/" },
+        { "id": "lakera-guard", "name": "Lakera Guard", "description": "Real-time protection against prompt injection and LLM vulnerabilities.", "website": "https://lakera.ai" },
+        { "id": "prompt-security", "name": "Prompt Security", "description": "Platform for securing GenAI apps against prompt-based attacks.", "website": "https://prompt.security" },
+        { "id": "protect-ai", "name": "Protect AI", "description": "AI/ML security platform covering model and supply-chain risks.", "website": "https://protectai.com" },
+        { "id": "azure-content-safety", "name": "Azure AI Content Safety", "description": "Microsoft's managed service for detecting harmful content.", "website": "https://azure.microsoft.com" },
+        { "id": "bedrock-guardrails", "name": "AWS Bedrock Guardrails", "description": "AWS Bedrock's built-in safeguards for genAI applications.", "website": "https://aws.amazon.com/bedrock/guardrails/" }
+      ]
+    },
+    {
+      "id": "observability",
+      "name": "Observability",
+      "tools": [
+        { "id": "langsmith", "name": "LangSmith", "description": "LangChain's platform for tracing, debugging, and evaluating LLM apps.", "website": "https://smith.langchain.com" },
+        { "id": "langfuse", "name": "Langfuse", "description": "Open-source LLM observability and analytics platform.", "website": "https://langfuse.com" },
+        { "id": "arize-phoenix", "name": "Arize Phoenix", "description": "Open-source LLM tracing and evaluation tool.", "website": "https://phoenix.arize.com" },
+        { "id": "wandb-weave", "name": "Weights & Biases Weave", "description": "W&B's toolkit for tracking and evaluating LLM applications.", "website": "https://wandb.ai/site/weave" },
+        { "id": "trulens", "name": "TruLens", "description": "Library for evaluating and tracking LLM app quality.", "website": "https://trulens.org" },
+        { "id": "ragas", "name": "Ragas", "description": "Framework for evaluating RAG pipeline quality with reference-free metrics.", "website": "https://docs.ragas.io" },
+        { "id": "promptfoo", "name": "Promptfoo", "description": "Open-source tool for testing and evaluating prompts/LLM outputs.", "website": "https://promptfoo.dev" },
+        { "id": "helicone", "name": "Helicone", "description": "Open-source LLM observability and cost-monitoring platform.", "website": "https://helicone.ai" }
+      ]
+    },
+    {
+      "id": "memory",
+      "name": "Memory",
+      "tools": [
+        { "id": "mem0", "name": "Mem0", "description": "Memory layer for personalizing AI agents across sessions.", "website": "https://mem0.ai" },
+        { "id": "zep", "name": "Zep", "description": "Long-term memory store for LLM apps and agents.", "website": "https://getzep.com" },
+        { "id": "letta", "name": "Letta", "description": "Framework (formerly MemGPT) for stateful agents with persistent memory.", "website": "https://letta.com" },
+        { "id": "langgraph-memory", "name": "LangGraph Memory", "description": "Built-in memory/checkpointing features within LangGraph.", "website": "https://langchain-ai.github.io/langgraph/" },
+        { "id": "redis-memory", "name": "Redis", "description": "In-memory store commonly used for agent short-term memory/caching.", "website": "https://redis.io" },
+        { "id": "postgresql-memory", "name": "PostgreSQL", "description": "Relational database used for durable agent/session memory.", "website": "https://postgresql.org" },
+        { "id": "neo4j", "name": "Neo4j", "description": "Graph database used for knowledge-graph-based agent memory.", "website": "https://neo4j.com" },
+        { "id": "chroma-memory", "name": "Chroma", "description": "Embedding store also used as a lightweight memory backend.", "website": "https://trychroma.com" }
+      ]
+    },
+    {
+      "id": "ai-agent",
+      "name": "AI Agent SDKs",
+      "tools": [
+        { "id": "openai-agents-sdk", "name": "OpenAI Agents SDK", "description": "OpenAI's lightweight SDK for building agentic applications.", "website": "https://platform.openai.com" },
+        { "id": "langchain-agents", "name": "LangChain Agents", "description": "Agent abstractions built on top of LangChain.", "website": "https://langchain.com" },
+        { "id": "pydantic-ai", "name": "PydanticAI", "description": "Type-safe Python agent framework built on Pydantic.", "website": "https://ai.pydantic.dev" },
+        { "id": "semantic-kernel", "name": "Semantic Kernel", "description": "Microsoft's SDK for integrating LLMs into apps with plugins/agents.", "website": "https://github.com/microsoft/semantic-kernel" },
+        { "id": "google-adk", "name": "Google ADK", "description": "Google's Agent Development Kit for building and deploying agents.", "website": "https://google.github.io/adk-docs/" },
+        { "id": "bedrock-agents", "name": "AWS Bedrock Agents", "description": "AWS Bedrock's managed agent orchestration service.", "website": "https://aws.amazon.com/bedrock/agents/" },
+        { "id": "azure-ai-foundry-agents", "name": "Azure AI Foundry Agent Service", "description": "Microsoft's managed service for building and hosting AI agents.", "website": "https://azure.microsoft.com" }
+      ]
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "tools": [
+        { "id": "n8n", "name": "n8n", "description": "Open-source workflow automation tool with visual editor.", "website": "https://n8n.io" },
+        { "id": "zapier", "name": "Zapier", "description": "No-code automation platform connecting thousands of apps.", "website": "https://zapier.com" },
+        { "id": "make", "name": "Make", "description": "Visual automation platform (formerly Integromat).", "website": "https://make.com" },
+        { "id": "power-automate", "name": "Microsoft Power Automate", "description": "Microsoft's low-code workflow automation platform.", "website": "https://powerautomate.microsoft.com" },
+        { "id": "temporal", "name": "Temporal", "description": "Durable execution engine for reliable, long-running workflows.", "website": "https://temporal.io" },
+        { "id": "unverified-automation-tool", "name": "(verify name — unclear in screenshot)", "description": "Icon unclear/cut off between Temporal and Airflow; confirm before use.", "website": "" },
+        { "id": "airflow", "name": "Airflow", "description": "Widely-used open-source platform for orchestrating data pipelines.", "website": "https://airflow.apache.org" },
+        { "id": "prefect", "name": "Prefect", "description": "Modern Python-native workflow orchestration platform.", "website": "https://prefect.io" },
+        { "id": "kestra", "name": "Kestra", "description": "Open-source declarative orchestration and scheduling platform.", "website": "https://kestra.io" },
+        { "id": "pipedream-unverified", "name": "Pipedream (verify name)", "description": "Cut off in screenshot — likely Pipedream; confirm before use.", "website": "" }
+      ]
+    },
+    {
+      "id": "vector-db",
+      "name": "Vector Database",
+      "tools": [
+        { "id": "pinecone", "name": "Pinecone", "description": "Managed vector database built for production-scale similarity search.", "website": "https://pinecone.io" },
+        { "id": "weaviate", "name": "Weaviate", "description": "Open-source vector database with hybrid search support.", "website": "https://weaviate.io" },
+        { "id": "qdrant", "name": "Qdrant", "description": "Open-source vector database written in Rust, focused on performance.", "website": "https://qdrant.tech" },
+        { "id": "milvus", "name": "Milvus", "description": "Open-source vector database designed for massive-scale embeddings.", "website": "https://milvus.io" },
+        { "id": "chroma-vdb", "name": "Chroma", "description": "Lightweight open-source embedding database, popular for prototyping.", "website": "https://trychroma.com" },
+        { "id": "pgvector", "name": "pgvector", "description": "PostgreSQL extension adding vector similarity search to Postgres.", "website": "https://github.com/pgvector/pgvector" },
+        { "id": "elasticsearch", "name": "Elasticsearch", "description": "Search engine with vector/hybrid search capabilities via kNN.", "website": "https://elastic.co" },
+        { "id": "redis-vdb", "name": "Redis", "description": "In-memory database with vector search module (RediSearch).", "website": "https://redis.io" },
+        { "id": "mongodb-vector-search", "name": "MongoDB Atlas Vector Search", "description": "MongoDB Atlas's native vector search for embeddings.", "website": "https://mongodb.com/products/platform/atlas-vector-search" }
+      ]
+    }
+  ]
+}
