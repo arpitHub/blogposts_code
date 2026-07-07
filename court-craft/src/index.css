@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  /* Court Craft palette: clay terracotta, chalk white, deep court green */
+  --color-clay-50: #fdf5f2;
+  --color-clay-100: #fae6de;
+  --color-clay-200: #f4cbbc;
+  --color-clay-300: #eba98f;
+  --color-clay-400: #de7f5c;
+  --color-clay-500: #cf5f38;
+  --color-clay-600: #b94a26;
+  --color-clay-700: #9a3a1f;
+  --color-clay-800: #7d311e;
+  --color-clay-900: #662b1d;
+
+  --color-court-50: #f0f7f2;
+  --color-court-100: #dbeade;
+  --color-court-200: #b8d5c0;
+  --color-court-300: #8bb899;
+  --color-court-400: #5d9770;
+  --color-court-500: #3f7a54;
+  --color-court-600: #2e6142;
+  --color-court-700: #254e37;
+  --color-court-800: #1f3f2e;
+  --color-court-900: #1a3427;
+  --color-court-950: #0d1d15;
+
+  --color-chalk: #faf7f2;
+  --color-line: #efe9df;
+
+  --font-display: "Georgia", "Times New Roman", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-chalk text-court-950 antialiased;
+}
+
+/* Custom range slider styling used across all interactive widgets */
+input[type="range"].cc-slider {
+  @apply appearance-none h-2 rounded-full bg-court-100 cursor-pointer;
+  accent-color: var(--color-clay-500);
+}
+input[type="range"].cc-slider::-webkit-slider-thumb {
+  @apply appearance-none w-5 h-5 rounded-full border-2 border-white shadow-md;
+  background: var(--color-clay-500);
+}
+input[type="range"].cc-slider::-moz-range-thumb {
+  @apply w-5 h-5 rounded-full border-2 border-white shadow-md;
+  background: var(--color-clay-500);
+}
+
+@keyframes cc-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cc-fade-up { animation: cc-fade-up 0.35s ease both; }
