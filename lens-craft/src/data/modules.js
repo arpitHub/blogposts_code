@@ -56,7 +56,7 @@ export const MODULES = [
     title: 'Composition',
     tagline: 'Rule of thirds, leading lines, and symmetry — drag the grid, feel the difference.',
     level: 'beginner',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'light-and-direction',
@@ -64,7 +64,7 @@ export const MODULES = [
     title: 'Light & Direction',
     tagline: 'Move the light around a face and watch mood appear out of nowhere.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'white-balance',
@@ -72,7 +72,7 @@ export const MODULES = [
     title: 'White Balance & Color Temperature',
     tagline: 'Kelvin is just a dial between candlelight-orange and overcast-blue.',
     level: 'intermediate',
-    ready: false,
+    ready: true,
   },
   {
     slug: 'focal-length',

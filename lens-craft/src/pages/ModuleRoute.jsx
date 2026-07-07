@@ -6,6 +6,9 @@ import ExposureTriangleModule from '../widgets/exposure-triangle/ExposureTriangl
 import ApertureDofModule from '../widgets/aperture-dof/ApertureDofModule.jsx';
 import ShutterMotionModule from '../widgets/shutter-motion/ShutterMotionModule.jsx';
 import IsoNoiseModule from '../widgets/iso-noise/IsoNoiseModule.jsx';
+import CompositionModule from '../widgets/composition/CompositionModule.jsx';
+import LightDirectionModule from '../widgets/light-direction/LightDirectionModule.jsx';
+import WhiteBalanceModule from '../widgets/white-balance/WhiteBalanceModule.jsx';
 
 // Maps a module slug to its fully-built module page component.
 // Anything not in this registry falls back to the placeholder.
@@ -14,6 +17,9 @@ const BUILT_MODULES = {
   'aperture-depth-of-field': ApertureDofModule,
   'shutter-speed-motion': ShutterMotionModule,
   'iso-noise': IsoNoiseModule,
+  'composition': CompositionModule,
+  'light-and-direction': LightDirectionModule,
+  'white-balance': WhiteBalanceModule,
 };
 
 export default function ModuleRoute() {
