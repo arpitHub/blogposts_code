@@ -1,0 +1,37 @@
+# Rename `app` to a globally-unique name before running `fly launch --copy-config`,
+# or let `fly launch` generate one for you.
+app = "blog-admin-portal-api"
+primary_region = "iad"
+
+[build]
+
+[env]
+  LLM_PROVIDER = "anthropic"
+  ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
+  # CORS_ORIGINS is set as a Fly secret so it can be updated without a redeploy:
+  #   fly secrets set CORS_ORIGINS="https://your-app.vercel.app"
+  # ANTHROPIC_API_KEY must also be set as a secret:
+  #   fly secrets set ANTHROPIC_API_KEY=sk-ant-...
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "get"
+    path = "/health"
+
+[[mounts]]
+  source = "blog_data"
+  destination = "/data"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
