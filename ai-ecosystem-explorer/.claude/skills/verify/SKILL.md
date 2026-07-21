@@ -30,3 +30,16 @@ Flows worth driving:
 - A tool with empty `website` (e.g. "Agno (verify name)") must NOT show "Visit site".
 - Category header click collapses/expands its grid.
 - 390px viewport → 1 grid column; 1440px → 4 columns.
+
+Explore view (`/explore`):
+- Expect 99 node groups (11 categories + 88 tools — Redis and Chroma are
+  merged across categories), 90 links, 2 dashed shared-tool rings.
+- Hover a category → its tools stay lit, everything else dims (opacity < 1).
+- Click a tool node → same ToolModal as the directory.
+- Search box dims non-matching nodes; search takes precedence over hover
+  (regression: pointer resting on a node used to mask search results).
+- Zoom buttons, wheel zoom, background pan all change `svg > g`'s transform;
+  dragging a node changes that node group's transform while the mouse is down
+  (it settles to a new position after release — compare mid-drag, not just
+  after, or the check can false-negative).
+- Mobile tap needs a Playwright context with `hasTouch: true`.

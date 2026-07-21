@@ -4,14 +4,22 @@ A browsable directory of AI tools and frameworks across the modern AI stack —
 LLM providers, agentic AI, RAG, embeddings, MCP, AI security, observability,
 memory, agent SDKs, automation, and vector databases.
 
-This is **Phase 1** (directory view). Phase 2 will add a graph/node-based
-"Explore" view reusing the same data layer.
+Two views share one data layer:
+
+- **Directory** (`/`) — searchable, filterable card grid grouped by category
+- **Explore** (`/explore`) — interactive force-directed graph of tools
+  connected to their categories, with pan/zoom, node dragging, hover
+  highlighting of neighbors, and search highlighting. Tools that live in
+  several categories (e.g. Redis, Chroma) are merged into a single node with
+  an edge to each category, marked with a dashed ring.
 
 ## Stack
 
 - [Next.js](https://nextjs.org) (App Router) + TypeScript
 - Tailwind CSS v4
 - [Fuse.js](https://fusejs.io) for client-side fuzzy search
+- [d3-force](https://github.com/d3/d3-force) for the graph layout (rendered
+  as plain SVG — no charting library)
 - Fully static — no server-side dependencies, deploys as-is to Vercel
 
 ## Getting started
@@ -49,8 +57,8 @@ loaded at build time. Shape:
   `(verify name)` in the JSON — the UI surfaces a small note about this so
   they can be corrected rather than silently guessed.
 
-`lib/types.ts` also defines a flat `ToolEntry` (tool + category) shape, which
-is what the Phase 2 graph view will consume as nodes.
+`lib/graph.ts` derives the Explore view's nodes and links from the same JSON
+at build time, merging same-named tools across categories into single nodes.
 
 ## Deploy
 
