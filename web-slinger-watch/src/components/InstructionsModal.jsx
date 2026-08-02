@@ -124,12 +124,12 @@ export default function InstructionsModal({ onClose }) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ type: 'spring', stiffness: 260, damping: 22 }}
         onClick={(event) => event.stopPropagation()}
-        className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-lg border-4 border-teal bg-navy p-5 shadow-2xl"
+        className="relative w-full max-w-md rounded-lg border-4 border-teal bg-navy shadow-2xl"
       >
-        {/* Speech-bubble tail pointing back toward the help button. */}
+        {/* Tail lives outside the scroll container so it isn't clipped. */}
         <div
           aria-hidden="true"
-          className="absolute -top-[13px] right-9 h-4 w-4 rotate-45 border-l-4 border-t-4 border-teal bg-navy"
+          className="absolute -top-[14px] right-9 h-4 w-4 rotate-45 border-l-4 border-t-4 border-teal bg-navy"
         />
 
         {/* Halftone texture, confined to the panel. */}
@@ -149,7 +149,7 @@ export default function InstructionsModal({ onClose }) {
           <span className="absolute right-1.5 top-0.5">×</span>
         </button>
 
-        <div className="relative">
+        <div className="relative max-h-[85vh] overflow-y-auto p-5">
           <h2 className="font-display text-sm uppercase tracking-widest text-teal">
             Field Manual
           </h2>
