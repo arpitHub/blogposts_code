@@ -58,10 +58,10 @@ export const FLAVOR_TEMPLATES = [
   'A stray web-line still dangles from {landmark} this morning.',
   'Skyline watchers logged a sighting arcing over {landmark}.',
   'Someone livestreamed a blur bouncing off {landmark} for six whole seconds.',
-  'Local paper's "mystery photo of the week": a smudge near {landmark}.',
+  "Local paper's \"mystery photo of the week\": a smudge near {landmark}.",
   'Reports of a rescue in progress near {landmark} — no injuries, lots of gossip.',
   'A rooftop party at {landmark} got an uninvited, very brief guest.',
-  'Scanner chatter says "he's headed toward {landmark}, again."',
+  '"He\'s headed toward {landmark}, again," says the scanner chatter.',
 ];
 
 export function generateFlavorText(boroughId) {
