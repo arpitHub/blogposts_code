@@ -34,6 +34,8 @@ export const CIPHER_LABELS = {
   solved: 'Case Solved',
   lost: 'Signal Lost',
   shift: 'Shift',
+  logSolved: 'Transmission cracked — sending our hero to the coordinates.',
+  logMissed: 'The signal went dark before we could crack it.',
 };
 
 export function randomCipherMessage() {
