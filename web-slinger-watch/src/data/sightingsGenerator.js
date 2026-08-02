@@ -1,4 +1,4 @@
-import { randomBorough, randomPointInBorough } from './boroughs';
+import { BOROUGHS, randomBorough, randomPointInBorough } from './boroughs';
 import { generateFlavorText } from './flavorText';
 
 export const MIN_SPAWN_INTERVAL_MS = 4000;
@@ -33,8 +33,11 @@ function findNearbySighting(existingSightings, x, y) {
 // Either bumps an existing cluster's count or creates a brand-new sighting.
 // Returns { sighting, isNew } where `sighting` is the object to upsert into
 // the caller's sightings array (matched by `id`).
-export function generateSighting(existingSightings) {
-  const borough = randomBorough();
+//
+// Pass `options.boroughId` to force the spawn into a specific borough — used
+// for the bonus sighting awarded when a decoder case is solved.
+export function generateSighting(existingSightings, options = {}) {
+  const borough = BOROUGHS[options.boroughId] || randomBorough();
   const { x, y } = randomPointInBorough(borough);
   const flavorText = generateFlavorText(borough.id);
   const timestamp = Date.now();
