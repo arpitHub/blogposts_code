@@ -44,6 +44,14 @@ export default function SightingMarker({ sighting }) {
       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
       style={{ transformOrigin: `${x}px ${y}px` }}
     >
+      <circle
+        cx={x}
+        cy={y}
+        r={radius + 10}
+        fill={glowColor}
+        className="animate-pulse-glow"
+        style={{ transformOrigin: `${x}px ${y}px`, filter: 'blur(6px)' }}
+      />
       <circle cx={x} cy={y} r={radius + 6} fill={glowColor} opacity={0.15} />
       <circle
         cx={x}
