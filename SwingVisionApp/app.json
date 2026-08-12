@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "SwingVision Clone",
+    "slug": "swingvision-clone",
+    "scheme": "swingvision",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a0f"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.swingvision.clone",
+      "infoPlist": {
+        "NSCameraUsageDescription": "SwingVision Clone needs access to the camera to record your tennis matches and analyze your shots.",
+        "NSMicrophoneUsageDescription": "SwingVision Clone needs access to the microphone to record audio with your match videos.",
+        "NSPhotoLibraryUsageDescription": "SwingVision Clone needs access to your photo library to save and share match recordings.",
+        "NSPhotoLibraryAddUsageDescription": "SwingVision Clone needs permission to save match videos to your photo library."
+      }
+    },
+    "android": {
+      "package": "com.swingvision.clone",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0a0f"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow SwingVision Clone to access your camera to record matches.",
+          "microphonePermission": "Allow SwingVision Clone to access your microphone for video recording.",
+          "recordAudioAndroid": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
