@@ -15,6 +15,7 @@ folder is a self-contained project — most are interactive single-page web apps
 | [`ekasutra`](ekasutra/) | **Ekasutra (One Thread)** — an immersive exploration of the universal themes connecting the Ramayana and the Mahabharata. | [ekasutra.vercel.app](https://ekasutra.vercel.app) |
 | [`chidiya-udd`](chidiya-udd/) | **Chidiya Udd (Bird, Fly!)** — nostalgic pass-and-play reflex game for 2–8 players on one shared screen: raise a hand only when the called-out thing can fly. | [chidiya-udd.vercel.app](https://chidiya-udd.vercel.app) |
 | [`natural-pest-id`](natural-pest-id/) | Garden insect identifier that labels each creature friend, foe, or neutral. Runs fully in the browser against a local Ollama instance — no cloud API or key. | [natural-pest-id.vercel.app](https://natural-pest-id.vercel.app) |
+| [`mythcraft`](mythcraft/) | **Mythcraft** — ten familiar claims taken apart: guess myth or fact, then read where the idea came from, three pieces of evidence, and a verdict that reacts to your guess. | [mythcraft.vercel.app](https://mythcraft.vercel.app) |
 | [`unit-testing-datascience`](unit-testing-datascience/) | Python example (pytest) showing how to unit-test data-science code — preprocessing and model logic tested against the Iris dataset. | — (not a web app) |
 
 > Live links are placeholders (`<project>.vercel.app`) — swap in the real deployment URLs.
