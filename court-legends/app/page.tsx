@@ -10,7 +10,7 @@ export default function Home() {
     <div data-theme="home" className="theme-root min-h-screen">
       <SkipLink />
       <SiteHeader />
-      <main id="main">
+      <main id="main" tabIndex={-1} className="focus:outline-none">
         <section aria-labelledby="home-title" className="mx-auto w-full max-w-6xl px-4 pb-12 pt-8 sm:px-8 sm:pb-16 sm:pt-14">
           <p className="board-text text-sm uppercase text-accent-ink">Profiles of the game's greats</p>
           <h1 id="home-title" className="display mt-3 text-[clamp(3.4rem,13vw,8.5rem)] leading-[0.9]">

@@ -5,7 +5,8 @@ import { Hero } from "@/components/Hero";
 import { Journey } from "@/components/Journey";
 import { BeyondTheCourt, EraContext, LegacyAndSources, Records } from "@/components/Sections";
 import { SiteFooter, SiteHeader, SkipLink } from "@/components/SiteChrome";
-import { PortraitCredit } from "@/components/Portrait";
+import { NextPlayer, PageNav } from "@/components/PageNav";
+import { personJsonLd } from "@/lib/jsonld";
 import { getPlayer, getPortrait, players } from "@/content/players";
 
 export const dynamicParams = false;
@@ -33,13 +34,19 @@ export default async function PlayerPage({ params }: PageProps<"/players/[slug]"
   const player = getPlayer(slug);
   if (!player) notFound();
   const credit = getPortrait(player.slug);
+  const next = players[(players.indexOf(player) + 1) % players.length];
 
   return (
     <div data-theme={player.theme} className="theme-root min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(player)).replace(/</g, "\\u003c") }}
+      />
       <SkipLink />
       <SiteHeader current={player.slug} />
-      <main id="main">
+      <main id="main" tabIndex={-1} className="focus:outline-none">
         <Hero player={player} credit={credit} />
+        <PageNav />
         <NetDivider />
         <Journey player={player} />
         <NetDivider />
@@ -48,10 +55,9 @@ export default async function PlayerPage({ params }: PageProps<"/players/[slug]"
         <BeyondTheCourt player={player} />
         <NetDivider />
         <LegacyAndSources player={player} credit={credit} />
+        {next !== player ? <NextPlayer next={next} /> : null}
       </main>
-      <SiteFooter>
-        <PortraitCredit player={player} credit={credit} />
-      </SiteFooter>
+      <SiteFooter />
     </div>
   );
 }

@@ -30,9 +30,11 @@ components/              court-line dividers, scoreboard tiles, journey rail, se
 scripts/fetch-images.mjs Wikimedia Commons downloader and licence checker
 ```
 
-Page sections, in order: Hero → Journey (8–12 "sets", with a sticky year rail on desktop and a
-progress strip on phones) → Records & stats → Era context → Beyond the court → Legacy, Where
-sources differ, Sources and Image credit.
+Page sections, in order: Hero (with "On this page" links) → Journey (8–12 "sets", with a sticky
+year rail on desktop and, on phones and tablets, a sticky strip that shows the current set and
+opens into a jump menu) → Records & stats → Era context → Beyond the court → Legacy, Where sources
+differ, Sources and Image credit → Next legend. Each profile also carries schema.org
+`ProfilePage`/`Person` JSON-LD built from the same data.
 
 ## Adding a player
 
@@ -49,7 +51,8 @@ sources differ, Sources and Image credit.
    `content/types.ts` and the OG colours to `lib/og.tsx`.
 4. **Register.** Import the player in `content/players/index.ts`.
 5. **Portrait.** Set `portrait.commons` (pinned `files`, a `category`, the theme's `era`), then run
-   `npm run images -- <slug>`. Commit the downloaded image and `content/images.json`.
+   `npm run images -- <slug>`. Commit the downloaded image and `content/images.json`. If the crop
+   cuts off the face, set `portrait.focus` (a CSS `object-position`, e.g. `"40% 15%"`).
 
 ## Images
 
@@ -102,12 +105,15 @@ Check after deploying:
 
 ## Quality notes
 
-- **Accessibility:** skip link; landmark sections, each labelled by its heading; visible focus
+- **Accessibility:** skip link that moves focus to the main content; landmark sections, each labelled by its heading; visible focus
   rings; W/L badges and count-up numbers have screen-reader text; decorative court lines are
   `aria-hidden`; theme text colours meet WCAG AA.
 - **Motion:** scroll reveals and count-ups are skipped entirely under `prefers-reduced-motion`,
   and content is never hidden without JavaScript.
+- **Readable scores:** set scores in running text never wrap at the dash (`components/Text.tsx`).
 - **No layout shift:** images have fixed dimensions in a 4:5 frame, and fonts use `next/font` with
   size-adjusted fallbacks.
-- Lighthouse (mobile, local production build): Performance 90–95, Accessibility 100,
-  Best Practices 100, SEO 100.
+- Lighthouse (mobile, local production build): Performance 91–92, Accessibility 100,
+  Best Practices 100, SEO 100. axe-core reports no violations at 320px or 1440px, including with the
+  phone set menu open.
+- **Print:** navigation is hidden and external links print their URLs.

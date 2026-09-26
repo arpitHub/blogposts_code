@@ -1,12 +1,6 @@
 "use client";
 
-import { MotionConfig } from "framer-motion";
 import { useEffect, useRef, type ReactNode } from "react";
-
-/** Honour the visitor's prefers-reduced-motion setting everywhere framer-motion is used. */
-export function MotionProvider({ children }: { children: ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
-}
 
 /**
  * Fade and lift a block into place the first time it scrolls into view.

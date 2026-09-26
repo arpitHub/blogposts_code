@@ -71,6 +71,8 @@ const S = {
   mow: { label: "National Archives: The March on Washington for Jobs and Freedom", url: "https://www.archives.gov/legislative/features/march-on-washington" },
   cra: { label: "Miller Center: The Civil Rights Act of 1964", url: "https://millercenter.org/the-presidency/educational-resources/the-civil-rights-act-of-1964" },
   ta128: { label: "Tennis Abstract: The Tennis 128, No. 48 Arthur Ashe", url: "https://www.tennisabstract.com/blog/2022/09/14/the-tennis-128-no-48-arthur-ashe/" },
+  si1965: { label: "Sports Illustrated Vault: Sports roundup, 28 June 1965", url: "https://vault.si.com/vault/1965/06/28/a-roundup-of-the-sports-information-of-the-week" },
+  usta: { label: "USTA: US Davis Cup record book (2019)", url: "https://www.usta.com/content/dam/usta/pdfs/Davis_Cup_Record_Book_2019_Finals.pdf" },
   gibson: { label: "Wikipedia: Robert Walter Johnson", url: "https://en.wikipedia.org/wiki/Robert_Walter_Johnson" },
 } satisfies Record<string, Source>;
 
@@ -167,7 +169,7 @@ const ashe: Player = {
       matches: [
         {
           year: 1965, event: "NCAA Championships", round: "Final", opponent: "Mike Belkin", score: "6–4, 6–1, 6–1", result: "W",
-          why: "National collegiate champion, and UCLA took the team title.", sources: [S.ev, S.ncaa65],
+          why: "National collegiate champion, and UCLA took the team title.", sources: [S.ev, S.uclaHof, S.si1965, S.ncaa65],
         },
         {
           year: 1966, event: "Australian Championships", round: "Final", opponent: "Roy Emerson", score: "4–6, 8–6, 2–6, 3–6", result: "L",
@@ -414,9 +416,9 @@ const ashe: Player = {
     {
       label: "Davis Cup singles record as a player",
       value: "27–5",
-      detail: "Plus 1–1 in doubles.",
+      detail: "Plus 1–1 in doubles, over ten Davis Cup seasons between 1963 and 1978. In the USTA's 2019 record book, only John McEnroe (41) and Andre Agassi (30) had won more Davis Cup singles matches for the US.",
       status: "stat",
-      sources: [S.atp],
+      sources: [S.atp, S.usta],
     },
     {
       label: "Career singles titles",

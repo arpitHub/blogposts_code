@@ -75,6 +75,22 @@
   }
 }
 
+/* Print: drop navigation chrome and decoration, keep the story and its sources */
+@media print {
+  nav,
+  .sticky {
+    display: none !important;
+  }
+  .theme-root {
+    background-image: none;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+}
+
 /* Scroll reveal (see components/Motion.tsx). The .js class is added before first paint. */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-reveal] {

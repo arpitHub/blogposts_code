@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { MotionProvider } from "@/components/Motion";
 import { fontVariables } from "@/lib/fonts";
 import { siteUrl } from "@/lib/format";
 import "./globals.css";
@@ -26,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className="min-h-screen antialiased">
-        <MotionProvider>{children}</MotionProvider>
+        {children}
       </body>
     </html>
   );

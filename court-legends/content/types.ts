@@ -86,6 +86,8 @@ export type Portrait = {
   monogram: string;
   /** Base alt text; the fetched image's year is appended when known */
   alt: string;
+  /** CSS object-position for cropping the photo into the 4:5 frame, e.g. "40% 15%". Default "50% 20%" */
+  focus?: string;
   /** Wikimedia Commons lookup used by scripts/fetch-images.mjs */
   commons: {
     /** Files to try first, in order ("File:…") */

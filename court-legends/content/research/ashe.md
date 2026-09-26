@@ -52,7 +52,7 @@ I couldn't open the pages myself.
   **Pancho Gonzales**. ✅ [Encyclopedia Virginia][ev], [UCLA Hall of Fame][ucla-hof]
 - **1963:** first Black player named to the **US Davis Cup team**. ✅ [ITHF][ithf], [Encyclopedia Virginia][ev]
 - **1965:** won the **NCAA singles** title, reportedly d. Mike Belkin (Miami) 6–4, 6–1, 6–1 ⚠️. Also won
-  the NCAA doubles with Ian Crookenden, and **UCLA won the team title**. ✅ title / ⚠️ score and partner [Encyclopedia Virginia][ev], [Wikipedia 1965 NCAA][wp-ncaa65]
+  the NCAA doubles with Ian Crookenden, and **UCLA won the team title**. ✅ (re-check: score confirmed by UCLA HOF / SI Vault search results) [Encyclopedia Virginia][ev], [Wikipedia 1965 NCAA][wp-ncaa65]
 - **Australian Championships finals, lost both to Roy Emerson:**
   - 1966: 6–4, 6–8, 6–2, 6–3 ⚠️ [Wikipedia][wp-1966a]
   - 1967: 6–4, 6–1, 6–4 ⚠️ [Wikipedia][wp-1967a]
@@ -121,7 +121,7 @@ I couldn't open the pages myself.
 - **Heart attack: 31 July 1979**. **Quadruple bypass: December 1979**. ✅ [ITHF][ithf], [Library of Virginia][lva]
 - **Retired from competition on 16 April 1980.** ✅ [CNN][cnn-retire]
 - **US Davis Cup captain 1981–1985.** The USA won the Cup in **1981 and 1982**. He resigned on **22 Oct 1985**. ✅ [Tennis Majors][tm-dc], [ATP bio][atp-bio]
-- Davis Cup record as a player: **27–5 in singles**, 1–1 in doubles. ⚠️ [ATP bio via search][atp-bio]
+- Davis Cup record as a player: **27–5 in singles**, 1–1 in doubles, over 1963–78; third among US players behind McEnroe (41) and Agassi (30) in the USTA 2019 record book. ✅ (re-check) [ATP bio][atp-bio], [USTA record book PDF](https://www.usta.com/content/dam/usta/pdfs/Davis_Cup_Record_Book_2019_Finals.pdf)
 - **Second bypass operation, 1983.** Doctors believed this was when he was infected with HIV through a
   **blood transfusion**. ✅ [Mayo Clinic Proceedings][mayo], [UPI 1992][upi-aids]
 - **11 Jan 1985:** **arrested** at an anti-apartheid protest outside the South African embassy in Washington, DC. ✅ [Washington Post][wapo-1985], [Google Arts & Culture arrest citation][gac]

@@ -55,7 +55,7 @@ exists (ATP results archive, Wimbledon draw PDF, ITHF), it's listed so you can v
 | 1959 | Wimbledon mixed | **Won** with Darlene Hard | ✅ | [ITHF][ithf], [Tennis Australia][ta] |
 | 1959 | Australian doubles | Won with Bob Mark | ⚠️ | [Tennis Australia][ta] |
 | 1959–62 | Davis Cup | Part of four straight winning Australian teams | ✅ | [Tennis Australia][ta], [SAHOF][sahof] |
-| 1960 | **Australian Championships (major #1)** | d. Neale Fraser **5–7, 3–6, 6–3, 8–6, 8–6**, from two sets down | ⚠️ | [Wikipedia 1960 AUS MS][wp-1960a] |
+| 1960 | **Australian Championships (major #1)** | d. Neale Fraser **5–7, 3–6, 6–3, 8–6, 8–6**, from two sets down; saved match points at 4–5 in the fifth. Fraser then beat him in the 1960 Wimbledon and US finals | ✅ (re-check) | [Australian Open][ao-laver], [Wikipedia 1960 AUS MS][wp-1960a] |
 | 1960 | Wimbledon final | Lost to Neale Fraser. The final itself is ✅ via ITHF's "six straight finals"; the opponent comes from Wikipedia only | ⚠️ | [Wikipedia][wp-1960w], [ITHF][ithf] |
 | 1961 | **Wimbledon (major #2)** | d. Chuck McKinley **6–3, 6–1, 6–4** | ✅ | [ITHF][ithf], [Wikipedia 1961 Wimbledon MS][wp-1961w] |
 
@@ -68,7 +68,7 @@ Second man to do it, after Don Budge (1938). ✅ [ITHF][ithf], [Wikipedia][wp-19
 
 | Major | Final | Score | Notes | Tag | Sources |
 | --- | --- | --- | --- | --- | --- |
-| Australian Championships | d. Roy Emerson | 8–6, 0–6, 6–4, 6–4 | | ⚠️ | [Wikipedia][wp-1962f] |
+| Australian Championships | d. Roy Emerson | 8–6, 0–6, 6–4, 6–4 | Windy White City centre court | ✅ (re-check) | [Australian Open][ao-laver], [Wikipedia][wp-1962f] |
 | French Championships | d. Roy Emerson | 3–6, 2–6, 6–3, 9–7, 6–2 | Came from two sets down in the final. **Saved a match point** in the quarter-final vs Martin Mulligan | ⚠️ | [Wikipedia 1962 French MS][wp-1962f] |
 | Wimbledon | d. Martin Mulligan | 6–2, 6–2, 6–1 | | ✅ | [ITHF][ithf], [Wikipedia][wp-1962w] |
 | US Championships | d. Roy Emerson | 6–2, 6–4, 5–7, 6–4 | | ⚠️ | [Wikipedia][wp-1962f] |
@@ -225,6 +225,7 @@ Fallback if none clears: a typographic portrait (initials over court lines).
 ---
 
 [wp]: https://en.wikipedia.org/wiki/Rod_Laver
+[ao-laver]: https://ausopen.com/history/great-champions/rod-laver
 [enc]: https://www.encyclopedia.com/people/sports-and-games/sports-biographies/rod-laver
 [ebsco]: https://www.ebsco.com/research-starters/biography/rod-laver/
 [ithf]: https://www.tennisfame.com/hall-of-famers/inductees/rod-laver

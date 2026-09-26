@@ -5,6 +5,7 @@ import { Reveal } from "./Motion";
 import { PortraitCredit } from "./Portrait";
 import { CountUp } from "./Scoreboard";
 import { SourceLinks } from "./SourceLinks";
+import { T } from "./Text";
 
 const STATUS: Record<RecordStatus, { label: string; tone: string } | null> = {
   "still-stands": { label: "Still stands", tone: "bg-board-accent text-board" },
@@ -43,7 +44,9 @@ export function Records({ player }: { player: Player }) {
                   ) : (
                     <p className="board-text mt-4 text-[0.7rem] uppercase text-board-ink/70">Career stat</p>
                   )}
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-board-ink/90">{r.detail}</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-board-ink/90">
+                    <T>{r.detail}</T>
+                  </p>
                   <p className="mt-4 text-xs text-board-ink/80">
                     <span className="board-text uppercase">Sources:</span>{" "}
                     {r.sources.map((s, j) => (
@@ -71,7 +74,9 @@ function NoteCard({ note, index }: { note: NoteItem; index: number }) {
       <Reveal delay={(index % 2) * 0.06} className="h-full">
         <div className="h-full rounded-[var(--radius)] border-2 border-ink/15 bg-paper/70 p-5">
           <h4 className="display text-xl leading-snug">{note.title}</h4>
-          <p className="mt-2 leading-relaxed">{note.body}</p>
+          <p className="mt-2 leading-relaxed">
+            <T>{note.body}</T>
+          </p>
           <SourceLinks sources={note.sources} className="mt-3" />
         </div>
       </Reveal>
@@ -105,7 +110,9 @@ export function EraContext({ player }: { player: Player }) {
                 <li key={n.title} className="relative">
                   <span aria-hidden="true" className="absolute -left-[33px] top-1.5 h-4 w-4 rounded-full border-[3px] border-paper bg-accent" />
                   <h4 className="board-text text-lg">{n.title}</h4>
-                  <p className="mt-1 leading-relaxed">{n.body}</p>
+                  <p className="mt-1 leading-relaxed">
+                    <T>{n.body}</T>
+                  </p>
                   <SourceLinks sources={n.sources} className="mt-2" />
                 </li>
               ))}
@@ -127,7 +134,9 @@ export function BeyondTheCourt({ player }: { player: Player }) {
           <li key={b.title} className="border-line/70 p-6 text-line sm:p-8 [&:not(:last-child)]:border-b-2 sm:[&:nth-child(odd):not(:last-child)]:border-r-2 sm:[&:last-child:nth-child(odd)]:col-span-2">
             <p className="board-text text-xs uppercase text-line">{String(i + 1).padStart(2, "0")}</p>
             <h3 className="display mt-2 text-2xl leading-snug">{b.title}</h3>
-            <p className="mt-3 leading-relaxed">{b.body}</p>
+            <p className="mt-3 leading-relaxed">
+              <T>{b.body}</T>
+            </p>
             <p className="mt-4 text-xs text-line">
               <span className="board-text uppercase">Sources:</span>{" "}
               {b.sources.map((s, j) => (
@@ -153,7 +162,9 @@ export function LegacyAndSources({ player, credit }: { player: Player; credit?: 
       <SectionHeading id="legacy" kicker="Legacy" title="Match point" />
       <div className="max-w-3xl space-y-5 text-xl leading-relaxed sm:text-2xl">
         {player.legacy.map((p, i) => (
-          <p key={i}>{p}</p>
+          <p key={i}>
+            <T>{p}</T>
+          </p>
         ))}
       </div>
 
@@ -166,7 +177,9 @@ export function LegacyAndSources({ player, credit }: { player: Player; credit?: 
             {player.sourcesDiffer.map((n) => (
               <li key={n.title} className="border-l-[3px] border-dashed border-accent pl-4">
                 <h4 className="font-semibold">{n.title}</h4>
-                <p className="mt-1 leading-relaxed">{n.body}</p>
+                <p className="mt-1 leading-relaxed">
+                  <T>{n.body}</T>
+                </p>
                 <SourceLinks sources={n.sources} className="mt-2" />
               </li>
             ))}

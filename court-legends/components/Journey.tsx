@@ -5,6 +5,7 @@ import { JourneyShell, type RailItem } from "./JourneyShell";
 import { Reveal } from "./Motion";
 import { ScoreTile } from "./ScoreTile";
 import { SourceLinks } from "./SourceLinks";
+import { T } from "./Text";
 
 const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen"];
 
@@ -57,7 +58,9 @@ function ChapterView({ chapter, shortName }: { chapter: Chapter; shortName: stri
       <div className="mt-8 grid gap-10 xl:grid-cols-[minmax(0,1fr)_260px]">
         <div className="prose-body max-w-prose text-[1.075rem] leading-relaxed sm:text-lg">
           {chapter.paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
+            <p key={i}>
+              <T>{p}</T>
+            </p>
           ))}
         </div>
         <Reveal className="xl:pt-1">
@@ -70,7 +73,9 @@ function ChapterView({ chapter, shortName }: { chapter: Chapter; shortName: stri
       <Reveal>
         <aside aria-label={`Era note, set ${chapter.set}`} className="mt-10 max-w-prose border-l-[3px] border-accent pl-5">
           <p className="board-text text-xs uppercase text-accent-ink">Era note</p>
-          <p className="mt-1 text-base leading-relaxed">{chapter.eraNote.text}</p>
+          <p className="mt-1 text-base leading-relaxed">
+            <T>{chapter.eraNote.text}</T>
+          </p>
           <SourceLinks sources={chapter.eraNote.sources} className="mt-2" />
         </aside>
       </Reveal>
@@ -126,7 +131,9 @@ function MatchList({ matches, shortName }: { matches: Match[]; shortName: string
                 <p className="board-text mt-3 text-lg">
                   {m.score ?? <span className="text-sm normal-case text-muted">Score not given in our sources</span>}
                 </p>
-                <p className="mt-2 flex-1 text-sm leading-relaxed">{m.why}</p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed">
+                  <T>{m.why}</T>
+                </p>
                 <SourceLinks sources={m.sources} className="mt-3" />
               </div>
             </Reveal>

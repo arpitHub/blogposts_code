@@ -67,6 +67,7 @@ const S = {
   ta128: { label: "Tennis Abstract: The Tennis 128, No. 1 Rod Laver", url: "https://www.tennisabstract.com/blog/2022/12/21/the-tennis-128-no-1-rod-laver/" },
   dunlop: { label: "Dunlop: Rod Laver", url: "https://dunlopsports.com/team/tennis/ambassadors/rod-laver/" },
   us2026: { label: "Wikipedia: 2026 US Open men's singles", url: "https://en.wikipedia.org/wiki/2026_US_Open_%E2%80%93_Men%27s_singles" },
+  aoLaver: { label: "Australian Open: Great champions, Rod Laver", url: "https://ausopen.com/history/great-champions/rod-laver" },
   records: { label: "Wikipedia: All-time tennis records, men's singles", url: "https://en.wikipedia.org/wiki/All-time_tennis_records_%E2%80%93_Men's_singles" },
 } satisfies Record<string, Source>;
 
@@ -138,7 +139,7 @@ const laver: Player = {
       headline: "Losing Wimbledon finals, then winning from two sets down",
       paragraphs: [
         "In 1959 Laver reached his first Wimbledon singles final and lost it in straight sets to Alex Olmedo. He left London with a title all the same: the mixed doubles, won with Darlene Hard. The same year he took the Australian doubles with Bob Mark and helped Australia win the Davis Cup, the first of four straight Cup wins with him in the team.",
-        "His first major singles title came at the 1960 Australian Championships, and he had to fight for it. Against Neale Fraser in the final he lost the first two sets, then won the next three, taking the last two 8–6, 8–6. At Wimbledon later that year it was Fraser's turn, and Laver was a beaten finalist for the second year running.",
+        "His first major singles title came at the 1960 Australian Championships, and he had to fight for it. Against Neale Fraser in the final he lost the first two sets, then fought back, and at 4–5 in the fifth he faced match points. He saved them and won 8–6 in the fifth. Fraser had his revenge later that year, beating Laver in the finals at Wimbledon and at the US Championships.",
       ],
       matches: [
         {
@@ -148,8 +149,8 @@ const laver: Player = {
         },
         {
           year: 1960, event: "Australian Championships", round: "Final", opponent: "Neale Fraser", score: "5–7, 3–6, 6–3, 8–6, 8–6", result: "W",
-          why: "Major title No. 1, won from two sets down.",
-          sources: [S.a1960],
+          why: "Major title No. 1, won from two sets down after saving match points in the fifth set.",
+          sources: [S.aoLaver, S.a1960],
         },
         {
           year: 1960, event: "Wimbledon", round: "Final", opponent: "Neale Fraser", result: "L",
@@ -162,7 +163,7 @@ const laver: Player = {
         text: "The majors were amateur-only. The best players were not allowed to take prize money there, and those who turned professional were shut out of the Grand Slam events entirely. That rule would shape the next decade of Laver's life.",
         sources: [S.ithfOpen, S.tcBournemouth],
       },
-      sources: [S.w1959, S.a1960, S.w1960, S.ithf, S.ta],
+      sources: [S.w1959, S.aoLaver, S.a1960, S.w1960, S.ithf, S.ta],
     },
     {
       set: 4,
@@ -200,7 +201,7 @@ const laver: Player = {
       matches: [
         {
           year: 1962, event: "Australian Championships", round: "Final", opponent: "Roy Emerson", score: "8–6, 0–6, 6–4, 6–4", result: "W",
-          why: "Leg one of the Grand Slam.", sources: [S.f1962],
+          why: "Leg one of the Grand Slam, played on a windy White City centre court.", sources: [S.aoLaver, S.f1962],
         },
         {
           year: 1962, event: "French Championships", round: "Quarter-final", opponent: "Martin Mulligan", result: "W",
@@ -224,7 +225,7 @@ const laver: Player = {
         text: "A Grand Slam was so rare that the only man to have done it before Laver, Don Budge, had done it 24 years earlier, the year Laver was born.",
         sources: [S.f1962, S.ithf],
       },
-      sources: [S.ithf, S.f1962, S.w1962, S.wp],
+      sources: [S.ithf, S.aoLaver, S.f1962, S.w1962, S.wp],
     },
     {
       set: 6,

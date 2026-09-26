@@ -26,8 +26,8 @@ export function Portrait({
         alt={portraitAlt(player, credit)}
         sizes={sizes}
         priority={priority}
-        className="block aspect-[4/5] h-auto w-full object-cover object-top"
-        style={{ filter: "var(--photo-filter)" }}
+        className="block aspect-[4/5] h-auto w-full object-cover"
+        style={{ filter: "var(--photo-filter)", objectPosition: player.portrait.focus ?? "50% 20%" }}
       />
     );
   }
