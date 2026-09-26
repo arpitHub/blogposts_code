@@ -1,0 +1,83 @@
+/*
+ * Per-player themes. Each block sets the same tokens; components only ever read the tokens.
+ * To add a player theme, copy a block, rename the data-theme value and change the values.
+ * Check text contrast: --ink, --muted and --accent-ink must each reach 4.5:1 on --paper.
+ */
+
+/* Home / neutral: a hard-court draw sheet */
+:root,
+[data-theme="home"] {
+  --paper: #f6f4ee;
+  --paper-2: #ebe7dc;
+  --ink: #16202a;
+  --muted: #4a5561;
+  --accent: #2c5f8a;
+  --accent-ink: #234d71;
+  --accent-2: #d8b23a;
+  --court: #2c5f8a;
+  --court-2: #3b73a1;
+  --line: #fbfaf6;
+  --board: #16202a;
+  --board-ink: #f6f4ee;
+  --board-accent: #e8c547;
+  --theme-display: var(--font-oswald), "Arial Narrow", sans-serif;
+  --theme-body: var(--font-source-serif), Georgia, serif;
+  --display-weight: 600;
+  --display-tracking: 0.01em;
+  --display-case: uppercase;
+  --radius: 4px;
+  --texture: none;
+}
+
+/* Rod Laver: 1960s Wimbledon white and grass green on cream paper, classic serif, fine grain */
+[data-theme="laver"] {
+  --paper: #f3eedf;
+  --paper-2: #e8e1cb;
+  --ink: #1b261d;
+  --muted: #4b584d;
+  --accent: #2e5b34;
+  --accent-ink: #24482a;
+  --accent-2: #b89a4a;
+  --court: #3a6b3f;
+  --court-2: #447a49;
+  --line: #fbfaf4;
+  --board: #1f3a26;
+  --board-ink: #f5f1e3;
+  --board-accent: #e2d08a;
+  --theme-display: var(--font-playfair), Georgia, serif;
+  --theme-body: var(--font-source-serif), Georgia, serif;
+  --display-weight: 700;
+  --display-tracking: -0.01em;
+  --display-case: none;
+  --radius: 2px;
+  --texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.12 0 0 0 0 0.08 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Arthur Ashe: 1970s vintage broadcast, warm browns, burnt orange and mustard, bold retro type */
+[data-theme="ashe"] {
+  --paper: #f2e3c6;
+  --paper-2: #e8d3a9;
+  --ink: #2a1a10;
+  --muted: #5a4130;
+  --accent: #c4551c;
+  --accent-ink: #9a3b0e;
+  --accent-2: #d99a1e;
+  --court: #2f6a6e;
+  --court-2: #3a7a7e;
+  --line: #fdf4e1;
+  --board: #2a1a10;
+  --board-ink: #f8e8c6;
+  --board-accent: #f0a830;
+  --theme-display: var(--font-fraunces), "Cooper Black", Georgia, serif;
+  --theme-body: var(--font-work-sans), "Helvetica Neue", Arial, sans-serif;
+  --display-weight: 800;
+  --display-tracking: -0.02em;
+  --display-case: none;
+  --radius: 14px;
+  --texture: repeating-linear-gradient(0deg, rgb(42 26 16 / 0.035) 0 1px, transparent 1px 3px);
+}
+
+/* How Commons photos are toned to sit inside each theme (the credit line notes this) */
+:root { --photo-filter: grayscale(1) contrast(1.05); }
+[data-theme="laver"] { --photo-filter: grayscale(1) sepia(0.18) contrast(1.06); }
+[data-theme="ashe"] { --photo-filter: sepia(0.35) saturate(1.15) contrast(1.05); }
