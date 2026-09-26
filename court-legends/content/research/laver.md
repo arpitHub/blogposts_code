@@ -80,7 +80,7 @@ Primary check suggested: [ATP draws archive, Wimbledon 1962][atp-1962w].
 - Turned professional in **December 1962**, after helping Australia win the Davis Cup. Joined the pro
   troupe. Members of the players' association reportedly guaranteed him **US$110,000 over three
   years**. ⚠️ amount [JRank/Encyclopedia][jrank-pro]. ✅ timing [Wikipedia][wp], [SAHOF][sahof]
-- As a pro he was **barred from the majors from 1963 to 1967 (21 majors)**. The amateur majors did not
+- As a pro he was **barred from the majors from 1963 to 1967** (20 majors across those five years). The amateur majors did not
   admit professionals until the Open Era. ✅ (seed fact; consistent with all sources)
 - Rough start: in early 1963 **Lew Hoad won their first eight matches** and **Ken Rosewall won 11 of
   13**. By year's end, with three titles, Laver was No. 2 among pros behind Rosewall. ⚠️ [Wikipedia][wp], [SAHOF][sahof]
